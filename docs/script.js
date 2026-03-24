@@ -40,7 +40,7 @@ function getRandomColor() {
 }
 
 async function loadSurrenderList() {
-  const files = ["list-1.json", "list-2.json"]; 
+  const files = ["list-1.json"]; 
   let names = [];
 
   for (const file of files) {
