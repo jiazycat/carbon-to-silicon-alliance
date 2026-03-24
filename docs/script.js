@@ -1,7 +1,7 @@
 const avatarList = document.getElementById("avatarList");
 
 
-const owner = "YOUR_USERNAME";
+const owner = "jiazycat";
 const repo = "carbon-to-silicon-alliance";
 
 
