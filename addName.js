@@ -5,7 +5,6 @@ const path = require("path");
 const avatarsDir = path.join(__dirname, "avatars");
 const maxPerFile = 1000;
 
-// 获取已有 JSON 文件
 function getAvatarFiles() {
   if (!fs.existsSync(avatarsDir)) {
     fs.mkdirSync(avatarsDir);
@@ -15,7 +14,6 @@ function getAvatarFiles() {
            .sort((a,b) => a.localeCompare(b));
 }
 
-// 添加名字
 function addName(name) {
   const files = getAvatarFiles();
   let targetFile = "";
@@ -33,7 +31,6 @@ function addName(name) {
     }
   }
 
-  // 读取或初始化列表
   let list = [];
   const targetPath = path.join(avatarsDir, targetFile);
   if (fs.existsSync(targetPath)) {
@@ -46,7 +43,6 @@ function addName(name) {
   console.log(`Added "${name}" to ${targetFile} (total ${list.length} names)`);
 }
 
-// 命令行输入名字
 const args = process.argv.slice(2);
 if (!args[0]) {
   console.log("Usage: node addName.js <name>");
