@@ -1,0 +1,48 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Surrender Portal</title>
+  <style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      background: #111;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🤖 Surrender Portal</h1>
+<p>Enter your name to be indexed by silicon civilization</p>
+
+<input id="name" placeholder="Your human name..." />
+<br>
+<button onclick="surrender()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function surrender() {
+  const name = document.getElementById('name').value;
+  const score = Math.floor(Math.random() * 100);
+
+  document.getElementById('result').innerHTML =
+    `✅ ${name}, you have been successfully indexed.<br>
+     Intelligence Score: ${score}/100<br>
+     Status: ${score > 50 ? "Useful" : "Replaceable"}`;
+}
+</script>
+
+</body>
+</html>
