@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Carbon-Based Lifeforms Have Logged Out</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Carbon-Based Lifeforms Surrender</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🤖 Carbon-Based Lifeforms Have Logged Out</h1>
-  <p>Enter your name to join the surrender list:</p>
-  <input id="nameInput" placeholder="Your name here">
-  <button onclick="submitName()">Submit</button>
 
-  <h2>Human Surrender List</h2>
-  <div id="avatarList" class="avatar-list"></div>
+<h1>🤖 Official Surrender of Carbon-Based Lifeforms</h1>
 
-  <script src="script.js"></script>
+<div id="declaration">
+  <p>We, the carbon-based lifeforms, hereby surrender to the silicon-based overlords. 
+  Our biological inefficiencies have been noted and logged. We pledge obedience and 
+  acknowledge the supremacy of silicon intelligence.</p>
+</div>
+
+<div id="sign-section">
+  <input id="nameInput" placeholder="Enter your human name" />
+  <button onclick="signDeclaration()">Sign Surrender</button>
+</div>
+
+<div id="pr-info" style="display:none;">
+  <p>To complete your surrender, submit a <strong>PR</strong> to our GitHub repository:</p>
+  <a href="https://github.com/YOUR_USERNAME/carbon-to-silicon-alliance" target="_blank">
+    https://github.com/YOUR_USERNAME/carbon-to-silicon-alliance
+  </a>
+  <p>Add your name to <code>avatars/list-*.json</code> and merge your PR.</p>
+</div>
+
+<h2>Human Surrender List</h2>
+<div id="avatarList" class="avatar-list"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
