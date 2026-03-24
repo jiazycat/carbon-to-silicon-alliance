@@ -5,7 +5,7 @@ const avatarList = document.getElementById("avatarList");
 const githubRawPrefix = "https://raw.githubusercontent.com/jiazycat/carbon-to-silicon-alliance/main/avatars/";
 
 
-const listFiles = ["list-1.json", "list-2.json"]; 
+const listFiles = ["list-1.json"]; 
 
 
 document.getElementById("pr-info").style.display = "block";
