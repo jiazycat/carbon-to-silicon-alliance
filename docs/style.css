@@ -6,7 +6,7 @@ body {
   padding: 50px;
 }
 
-input {
+input, button {
   padding: 10px;
   margin: 10px;
   border: 1px solid #00ffcc;
@@ -14,13 +14,7 @@ input {
   color: #00ffcc;
 }
 
-button {
-  padding: 10px 20px;
-  border: 1px solid #00ffcc;
-  background: black;
-  color: #00ffcc;
-  cursor: pointer;
-}
+button { cursor: pointer; }
 
 .avatar-list {
   display: flex;
@@ -40,4 +34,8 @@ button {
   color: #fff;
   font-weight: bold;
   font-size: 14px;
+  background-color: #111;
+  transition: transform 0.3s;
 }
+
+.avatar:hover { transform: scale(1.1); }
