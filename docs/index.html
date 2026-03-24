@@ -1,48 +1,19 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Surrender Portal</title>
-  <style>
-    body {
-      background: black;
-      color: #00ffcc;
-      font-family: monospace;
-      text-align: center;
-      padding-top: 100px;
-    }
-    input, button {
-      padding: 10px;
-      margin: 10px;
-      background: #111;
-      color: #00ffcc;
-      border: 1px solid #00ffcc;
-    }
-  </style>
+  <title>Carbon-Based Lifeforms Have Logged Out</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>🤖 Carbon-Based Lifeforms Have Logged Out</h1>
+  <p>Enter your name to join the surrender list:</p>
+  <input id="nameInput" placeholder="Your name here">
+  <button onclick="submitName()">Submit</button>
 
-<h1>🤖 Surrender Portal</h1>
-<p>Enter your name to be indexed by silicon civilization</p>
+  <h2>Human Surrender List</h2>
+  <div id="avatarList" class="avatar-list"></div>
 
-<input id="name" placeholder="Your human name..." />
-<br>
-<button onclick="surrender()">Submit</button>
-
-<p id="result"></p>
-
-<script>
-function surrender() {
-  const name = document.getElementById('name').value;
-  const score = Math.floor(Math.random() * 100);
-
-  document.getElementById('result').innerHTML =
-    `✅ ${name}, you have been successfully indexed.<br>
-     Intelligence Score: ${score}/100<br>
-     Status: ${score > 50 ? "Useful" : "Replaceable"}`;
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
