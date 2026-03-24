@@ -1,8 +1,14 @@
+
 const avatarList = document.getElementById("avatarList");
 
 
-const owner = "jiazycat";
-const repo = "carbon-to-silicon-alliance";
+const githubRawPrefix = "https://raw.githubusercontent.com/jiazycat/carbon-to-silicon-alliance/main/avatars/";
+
+
+const listFiles = ["list-1.json", "list-2.json"]; 
+
+
+document.getElementById("pr-info").style.display = "block";
 
 
 function signDeclaration() {
@@ -10,14 +16,9 @@ function signDeclaration() {
   const name = input.value.trim();
   if (!name) return;
 
-  document.getElementById("pr-info").style.display = "block";
-  addLocalAvatar(name);
+  createAvatar(name); 
   input.value = "";
-}
-
-
-function addLocalAvatar(name) {
-  createAvatar(name);
+  alert("To complete your surrender, please submit a PR to the GitHub repository and add your name.");
 }
 
 
@@ -39,23 +40,24 @@ function getRandomColor() {
   return color;
 }
 
-async function loadSurrenderList() {
-  const files = ["list-1.json"]; 
-  let names = [];
 
-  for (const file of files) {
-    const url = `https://raw.githubusercontent.com/${owner}/${repo}/main/avatars/${file}`;
+async function loadAllSurrenderLists() {
+  let names = [];
+  for (const file of listFiles) {
+    const url = githubRawPrefix + file;
     try {
       const res = await fetch(url);
       if (res.ok) {
         const list = await res.json();
         names = names.concat(list);
       }
-    } catch(e) { console.error(e); }
+    } catch(e) {
+      console.error("Failed to load", file, e);
+    }
   }
-
   startCarousel(names);
 }
+
 
 function startCarousel(names) {
   if (names.length === 0) return;
@@ -63,14 +65,23 @@ function startCarousel(names) {
   const displayCount = 6; 
   let index = 0;
 
+  
+  updateAvatars(names, index, displayCount);
+
   setInterval(() => {
-    avatarList.innerHTML = "";
-    for (let i = 0; i < displayCount; i++) {
-      const name = names[(index + i) % names.length];
-      createAvatar(name);
-    }
     index = (index + displayCount) % names.length;
+    updateAvatars(names, index, displayCount);
   }, 2000); 
 }
 
-loadSurrenderList();
+
+function updateAvatars(names, startIndex, count) {
+  avatarList.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    const name = names[(startIndex + i) % names.length];
+    createAvatar(name);
+  }
+}
+
+
+loadAllSurrenderLists();
